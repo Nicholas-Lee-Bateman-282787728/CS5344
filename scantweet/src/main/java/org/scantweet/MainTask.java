@@ -2,8 +2,10 @@
  * @author jianmin
  * @date 2016 march 05
  * @use running in ubuntu
- * 		Input folder structure /home/hadoop/input/month/date[01-31]/hour[00-23]/minutes[00-59].json.bz2
+ * 		Input folder structure
+ * 		/home/hadoop/input/month/date[01-31]/hour[00-23]/minutes[00-59].json.bz2
  *		Change keywords in FilterJson class
+ *	    Modify file paths if necessary
  */
 package org.scantweet;
 
@@ -11,6 +13,7 @@ import java.util.LinkedList;
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaSparkContext;
 import org.scantweet.FileDiscover;
+
 public class MainTask {
 	
 	public static void main(String[] args) {
@@ -26,8 +29,10 @@ public class MainTask {
 		}
 			sc.close();
 	}
-	//each date folder has 24 folders 
+	//each month has date folder, each date folder has 24 folders
+	//each hour has 60 folders
 	private static void processJson(String input, JavaSparkContext sc){
+				//mapping output path to input
 		    	String output = input.replace("input", "output");
 		    	FilterJson fj = new FilterJson(input, output);
 				fj.RunScanTask(sc);

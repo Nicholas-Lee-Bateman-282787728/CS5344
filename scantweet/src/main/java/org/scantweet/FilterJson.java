@@ -29,7 +29,7 @@ public class FilterJson {
 	public void setOutput(String output){
 		this.output = output;
 	}
-	
+	//must be static, why?
 	private static final Function<String, Boolean> KEYWORDS_MATCH = 
 		new Function<String, Boolean>(){
 			private static final long serialVersionUID = 1L;
