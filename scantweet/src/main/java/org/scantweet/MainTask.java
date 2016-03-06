@@ -34,7 +34,6 @@ public class MainTask {
 	private static void processJson(String input, JavaSparkContext sc){
 				//mapping output path to input
 		    	String output = input.replace("input", "output");
-		    	FilterJson fj = new FilterJson(input, output);
-				fj.RunScanTask(sc);
+		    	FilterJson.RunScanTask(sc, input, output);
 	}
 }
