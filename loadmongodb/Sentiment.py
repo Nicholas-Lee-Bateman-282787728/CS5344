@@ -1,3 +1,6 @@
+#jianmin for CS 5344 Sentiment Analysis
+#write all tweets from input folder to combined file, adding sentiment
+#March 25 2016
 from __future__ import division
 from math import log, exp
 from operator import mul

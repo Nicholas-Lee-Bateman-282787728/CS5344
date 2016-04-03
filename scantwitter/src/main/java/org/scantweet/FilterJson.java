@@ -4,12 +4,12 @@ import org.apache.spark.api.java.*;
 import org.apache.spark.api.java.function.Function;
 
 public  class FilterJson {
-	 
+	//ATTN: each movie should run separately, otherwise won't get enough tweets, since the match is so simple
 	private static final String [] KEYWORDS = {
-		"furious 7", "fastfurious", "furious7",
-		"the longest ride",  "thelongestride",
-		"paul blart: mall cop 2", "paulblartmovie", "blartridesagain",
-		"the age of adaline", "ageofadaline"
+		//"furious 7", "fastfurious", "furious7"
+		//"the longest ride",  "thelongestride",
+		//"paul blart: mall cop", "paulblart", "blartridesagain",
+		"the age of adaline", "ageofadaline", "age of adaline"
 	};
 	 
 	//must be static, why?

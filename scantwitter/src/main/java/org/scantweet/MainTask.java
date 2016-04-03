@@ -19,7 +19,7 @@ public class MainTask {
 	public static void main(String[] args) {
 		//update local[2] to increase threads
 		SparkConf conf = new SparkConf().setAppName("Scan Tweets in JSON")
-				.setMaster("local[8]");
+				.setMaster("local[3]");
 		JavaSparkContext sc = new JavaSparkContext(conf);
 		String ip = "/media/hadoop/JIANMIN/input/";
 		FileDiscover fd = new FileDiscover(ip);
