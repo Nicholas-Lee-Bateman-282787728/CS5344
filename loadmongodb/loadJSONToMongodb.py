@@ -9,7 +9,7 @@ import json
 import re
 
 currentpath = os.path.dirname(os.path.abspath(__file__))
-out = currentpath + '/output/'
+out = currentpath + '/input/'
 
 
 def loadData(fname):
@@ -27,7 +27,7 @@ def loadData(fname):
 
 client = MongoClient('localhost', 27017)
 db = client['tweets']
-collection = db['tweets']
+collection = db['tweets_adaline']
 	
 tweets = []
 
@@ -35,16 +35,18 @@ for root, dirs, files in os.walk(out):
     for file in files:	
 	valid = re.compile(r"^part")
 	if re.match(valid, file):
-        	#print(file)
+        	#print('reading file:')
+		#print(file)
                 #print(os.path.join(root, file))
 		path = os.path.join(root, file)
 	 	tweet = loadData(path)
                 tweets.extend(tweet)
 
 for t in tweets:
-   #print(t)
+   print('write to collection:')
+   print(t)
    collection.insert(t)
 
 
-#for fname in iglob(os.path.expanduser(currentpath + '/output/part-*')):
+#for fname in iglob(os.path.expanduser(currentpath + '/input/part-*')):
  #   print(fname)
