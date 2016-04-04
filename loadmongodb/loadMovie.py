@@ -9,7 +9,7 @@ import json
 import re
 
 currentpath = os.path.dirname(os.path.abspath(__file__))
-movies = ['water']
+movies = ['ins','jur','spy']
 
 
 def loadData(fname):

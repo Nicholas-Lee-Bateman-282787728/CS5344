@@ -118,9 +118,13 @@ def loadData(fname):
 	with open(fname) as fin:		
 		for line in fin:
 		   try:
+			
 		   	tweet = json.loads(line)
+		        
 			text = tweet['text']
 			tm = tweet['timestamp_ms']
+			#tm = tweet['timestamp']
+			
 			result = get_sentiment_info(text)		
 			data = {}
 			data['text'] = text
@@ -129,6 +133,7 @@ def loadData(fname):
 			print(data)		
 			results.append(data)
 		   except:
+		        print('except')
 			continue
 	#print(data)
         return results
@@ -142,6 +147,7 @@ tweets = []
 for root, dirs, files in os.walk(out):
     for file in files:	
 	valid = re.compile(r"^part")
+	print(file)
 	if re.match(valid, file):
         	#print('reading file:')
 		#print(file)
